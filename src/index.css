@@ -1,13 +1,254 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #000;
+}
+
+::selection {
+  background-color: lightgray;
+}
+
+body {
+  background-image: url("./img/bgImg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+h1.budget__calc {
+  margin: 30px auto;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  position: relative;
+}
+
+h1.budget__calc::before {
+  content: "";
+  position: absolute;
+  top: 50px;
+  text-align: center;
+  width: 100px;
+  height: 3px;
+  background-color: #fff;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+h4 {
+  margin-top: calc(30px + 10px);
+}
+
+h4 span.total {
+  background-color: #fff;
+  padding: 4px 5px;
+  border-radius: 5px;
+}
+
+form {
+  background-color: #fff;
+  padding: 18px 20px;
+  height: auto;
+  border-radius: 4px;
+  margin: 53px 40px 0 0;
+}
+
+.submit__btn,
+.clear__btn {
+  font-size: 18px;
+  padding: 7px 10px;
+  border: none;
+  margin: 20px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+}
+
+.clear__btn:hover {
+  background-color: #fff;
+}
+
+.submit__btn:hover {
+  background-color: lightgray;
+}
+.clear__btn {
+  margin-left: 0;
+}
+
+.submit__btn {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.btn__icon {
+  margin-left: 6px;
+  font-size: 20px;
+}
+
+.empty__list {
+  font-size: 25px;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.list {
+  margin: 10px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.list h3 {
+  border-bottom: 2px solid #fff;
+  margin-bottom: 10px;
+}
+
+.list__item {
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 25px;
+  border-radius: 5px;
+}
+
+.item__info {
+  flex: 0 0 70%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 23px;
+}
+
+.item__name {
+  margin-right: 20px;
+}
+
+.item__amount {
+  background-color: #fff;
+  padding: 1px 3px;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.rupee__icon {
+  font-size: 20px;
+}
+
+.edit__btn,
+.delete__btn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 4px 7px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.edit__btn {
+  background-color: green;
+}
+
+.delete__btn {
+  background-color: red;
+}
+
+.edit__btn:hover,
+.delete__btn:hover {
+  color: #fff;
+}
+
+.alert {
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+}
+
+.alert-success {
+  background-color: rgb(2, 180, 2);
+}
+
+.alert-danger {
+  background-color: rgb(245, 50, 50);
+}
+
+@media (max-width: 1060px) {
+  .App {
+    grid-template-columns: 1fr;
+  }
+  form {
+    background-color: #fff;
+    padding: 18px 20px;
+    height: auto;
+    border-radius: 4px;
+    margin: 30px 0;
+  }
+  h4 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  form .row {
+    display: block;
+  }
+  .item__amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .item__info {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 360px) {
+  form {
+    margin: 30px auto;
+  }
+}
+
+@media (max-width: 315px) {
+  .edit__btn,
+  .delete__btn {
+    display: flex;
+    margin-top: 7px;
+  }
+}
+
+@media (max-width: 300px) {
+  h1.budget__calc {
+    font-size: 30px;
+  }
 }
