@@ -109,7 +109,7 @@ function App() {
 
   return (
     <>
-      {alert.show && <Alerts type={alert.type} text={alert.text} />}
+      <div className="alert__flow">{alert.show && <Alerts type={alert.type} text={alert.text} />}</div>
       <h1 className="budget__calc">Budget Calculator</h1>
       <h4>
         Total Spending:{" "}

@@ -98,6 +98,7 @@ form {
 .submit__btn:hover {
   background-color: lightgray;
 }
+
 .clear__btn {
   margin-left: 0;
 }
@@ -189,9 +190,14 @@ form {
 }
 
 .alert {
-  font-size: 18px;
+  font-size: 14px;
   color: #fff;
   text-align: center;
+  border-radius: 4px;
+  width: 60%;
+  margin: 0 auto;
+  padding: 0.5rem;
+
 }
 
 .alert-success {
@@ -202,10 +208,23 @@ form {
   background-color: rgb(245, 50, 50);
 }
 
+.alert__flow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 100px; */
+  z-index: 9;
+}
+
+
 @media (max-width: 1060px) {
   .App {
     grid-template-columns: 1fr;
   }
+
   form {
     background-color: #fff;
     padding: 18px 20px;
@@ -213,6 +232,7 @@ form {
     border-radius: 4px;
     margin: 30px 0;
   }
+
   h4 {
     text-align: center;
   }
@@ -222,11 +242,17 @@ form {
   form .row {
     display: block;
   }
+
+  .alert {
+    width: 95%;
+  }
+
   .item__amount {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .item__info {
     font-size: 18px;
     font-weight: bold;
@@ -240,6 +266,7 @@ form {
 }
 
 @media (max-width: 315px) {
+
   .edit__btn,
   .delete__btn {
     display: flex;
