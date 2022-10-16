@@ -174,20 +174,24 @@ form {
   padding: 4px 7px;
   margin-right: 4px;
   cursor: pointer;
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
 }
 
-.edit__btn {
+
+.edit__btn:hover {
   background-color: green;
-}
-
-.delete__btn {
-  background-color: red;
-}
-
-.edit__btn:hover,
-.delete__btn:hover {
   color: #fff;
+  transition: 0.1s ease-in-out;
 }
+
+.delete__btn:hover {
+  background-color: red;
+  color: #fff;
+  transition: 0.1s ease-in-out;
+}
+
+
 
 .alert {
   font-size: 14px;
@@ -218,7 +222,6 @@ form {
   /* width: 100px; */
   z-index: 9;
 }
-
 
 @media (max-width: 1060px) {
   .App {
