@@ -36,7 +36,7 @@ const ExpenseForm = ({
             Amount
           </label>
           <input
-            type="number"
+            type="text"
             className="form-control"
             id="expenseAmount"
             name="expenseAmount"
