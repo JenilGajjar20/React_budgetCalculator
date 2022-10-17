@@ -3,6 +3,7 @@ import Alerts from "./components/Alerts";
 import ExpenseList from "./components/ExpenseList";
 import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
+import { addCommas, removeNonNumeric } from "./utils/thousandSeparator";
 
 // Icons
 import { FaRupeeSign } from "react-icons/fa";
@@ -39,7 +40,7 @@ function App() {
 
   // Handle Expense Amount
   const handleExpenseAmount = (event) => {
-    setExpenseAmount(event.target.value);
+    setExpenseAmount(addCommas(removeNonNumeric(event.target.value)));
   };
 
   // Handle Alerts
@@ -53,20 +54,34 @@ function App() {
   // Handle Submit Button
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (expenseName !== "" && expenseAmount > 0) {
+    if (expenseName !== "" && removeNonNumeric(expenseAmount) > 0) {
       if (edit) {
         let tempExpenses = expenses.map((item) => {
           return item.id === id
-            ? { ...item, expenseName, expenseAmount }
+            ? {
+                ...item,
+                expenseName,
+                expenseAmount: removeNonNumeric(expenseAmount),
+              }
             : item;
         });
         setExpenses(tempExpenses);
         setEdit(false);
-        handleAlert({ type: "success", text: "Item Updated successfully." });
+        handleAlert({
+          type: "success",
+          text: "Item Updated successfully.",
+        });
       } else {
-        const singleExpense = { id: uuidv4(), expenseName, expenseAmount };
+        const singleExpense = {
+          id: uuidv4(),
+          expenseName,
+          expenseAmount: removeNonNumeric(expenseAmount),
+        };
         setExpenses([...expenses, singleExpense]);
-        handleAlert({ type: "success", text: "Item added successfully" });
+        handleAlert({
+          type: "success",
+          text: "Item added successfully",
+        });
       }
       setExpenseName("");
       setExpenseAmount("");
