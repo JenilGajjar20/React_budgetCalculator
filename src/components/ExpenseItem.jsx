@@ -1,6 +1,7 @@
 import React from "react";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { FaRupeeSign } from "react-icons/fa";
+import { addCommas } from '../utils/thousandSeparator'
 
 const ExpenseItem = ({ expense, deleteItem, editItem }) => {
   const { id, expenseName, expenseAmount } = expense;
@@ -10,7 +11,7 @@ const ExpenseItem = ({ expense, deleteItem, editItem }) => {
         <div className="item__info">
           <span className="item__name">{expenseName}</span>
           <span className="item__amount">
-            <FaRupeeSign className="rupee__icon" /> {expenseAmount}
+            <FaRupeeSign className="rupee__icon" /> {addCommas(expenseAmount)}
           </span>
         </div>
         <div>
