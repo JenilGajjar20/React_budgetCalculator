@@ -178,15 +178,15 @@ form {
   transition: 0.2s;
 }
 
-  .edit__btn:hover {
-    background-color: green;
-    color: #fff;
-    transition: 0.1s ease-in-out;
+.edit__btn:hover {
+  background-color: green;
+  color: #fff;
+  transition: 0.1s ease-in-out;
 }
 
 .delete__btn:hover {
   background-color: red;
-  color: #fff0;
+  color: #fff;
   transition: 0.1s ease-in-out;
 }
 
